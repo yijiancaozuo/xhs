@@ -1,0 +1,79 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>装好AI智能体却吃灰？缺的是这个 · 发布包</title>
+<style>
+:root{--bg:#0a0e1e;--card:#141b36;--fg:#f0f4ff;--mu:#96a5c8;--acc:#00e5ff;--red:#ff2442}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,"PingFang SC","Noto Sans CJK SC",sans-serif;padding:16px 16px 140px}
+a{color:var(--acc)}h1{font-size:20px;margin:6px 0 2px}.mu{color:var(--mu);font-size:13px}
+.imgs{display:flex;gap:8px;overflow-x:auto;margin:12px 0;scroll-snap-type:x mandatory}
+.imgs img{height:300px;border-radius:10px;scroll-snap-align:start;flex:none;-webkit-touch-callout:default}
+.box{background:var(--card);border-radius:12px;padding:12px;margin:10px 0}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.body{white-space:pre-wrap;font-size:14px;line-height:1.6;max-height:180px;overflow:auto}
+.tag{color:var(--acc)}button{font:inherit;border:0;border-radius:10px;cursor:pointer}
+.sm{background:#26305a;color:var(--fg);padding:6px 12px;font-size:13px;white-space:nowrap;flex:none}
+.steps{position:fixed;left:0;right:0;bottom:0;background:rgba(10,14,30,.96);padding:10px 16px calc(10px + env(safe-area-inset-bottom));border-top:1px solid #26305a}
+.big{display:block;width:100%;padding:14px;font-size:17px;font-weight:700;margin:6px 0;color:#fff}
+.b1{background:#26305a}.b2{background:var(--red)}.sdk{background:linear-gradient(90deg,#ff2442,#7c5cff)}
+#toast{position:fixed;top:14px;left:50%;transform:translateX(-50%);background:#fff;color:#111;padding:10px 14px;border-radius:10px;font-size:14px;display:none;z-index:9;max-width:92vw}
+.badge{display:inline-block;background:#3a2a00;color:#ffcc4d;font-size:12px;padding:2px 8px;border-radius:99px}
+ol{padding-left:18px;margin:6px 0}li{margin:3px 0;font-size:13px;color:var(--mu)}
+</style></head><body>
+<div id="toast"></div>
+<a href="../../index.html" class="mu">← 全部发布包</a>
+<div class="row"><h1 id="t"></h1><button class="sm" id="cpT">复制标题</button></div>
+<div class="mu"><span class="badge" id="st"></span> 标题 <b id="tl"></b>/20 · 正文 <b id="bl"></b>/1000 · <span id="ic"></span> 张图（长按图片也可保存）</div>
+<div class="imgs" id="imgs"></div>
+<div class="box"><div class="row"><b>正文 + 话题</b><button class="sm" id="cpB">复制正文</button></div><div class="body" id="b"></div></div>
+<div class="box"><b>发布步骤</b><ol>
+<li>点「① 保存全部图片」→ 分享面板里选「存储图像 / 保存到相册」</li>
+<li>点「② 复制正文并打开小红书」→ App 打开发布页 → 按顺序选刚保存的图 → 下一步</li>
+<li>正文框长按「粘贴」；回到本页点「复制标题」，粘贴到标题框 → 点发布</li></ol>
+<div class="mu">小红书官方已不允许任何外部方式自动填写标题和正文，所以文字需要粘贴一次。</div></div>
+<div class="steps">
+<button class="big sdk" id="sdkBtn" style="display:none">一键发布（官方 SDK：图片自动带入 + 正文已复制）</button>
+<button class="big b1" id="saveBtn">① 保存全部图片</button>
+<button class="big b2" id="openBtn">② 复制正文并打开小红书</button>
+</div>
+<script>
+const P={"id": "01_agent_chihui", "status": "待审核", "title": "装好AI智能体却吃灰？缺的是这个", "body": "很多人装好 AI 智能体的第一周很兴奋，第二周就吃灰了。\n\n我翻了近一周几十条热门 AI 帖下面的评论，大家说得最多的一句是：缺的不是工具，是能直接照抄的真实案例。\n\n为什么会吃灰？\n1️⃣ 一上来就想做“全自动公司”，任务太大，跑不通就放弃\n2️⃣ 没有固定场景：不知道每天让它干哪件事\n3️⃣ 提示词靠临时想，每次效果都不一样\n\n我的做法：只抄、不发明\n✅ 先选 1 件你每天都在重复的小事（整理资料、回消息草稿、写日报）\n✅ 找一个别人跑通的案例，原样照抄提示词和步骤\n✅ 连续用 7 天，再改成自己的版本\n✅ 每跑通一件，就记进自己的“案例库”\n\n判断标准很简单：一周能帮你省下 1 小时，就算没白装。\n\n后面我会把自己实测跑通的案例按“场景 + 提示词 + 步骤”整理出来，想先看哪个场景，评论区告诉我👇", "tags": ["AI智能体", "AI工具", "效率工具", "自动化", "一人公司", "AI副业"], "tags_line": "#AI智能体 #AI工具 #效率工具 #自动化 #一人公司 #AI副业", "full_text": "很多人装好 AI 智能体的第一周很兴奋，第二周就吃灰了。\n\n我翻了近一周几十条热门 AI 帖下面的评论，大家说得最多的一句是：缺的不是工具，是能直接照抄的真实案例。\n\n为什么会吃灰？\n1️⃣ 一上来就想做“全自动公司”，任务太大，跑不通就放弃\n2️⃣ 没有固定场景：不知道每天让它干哪件事\n3️⃣ 提示词靠临时想，每次效果都不一样\n\n我的做法：只抄、不发明\n✅ 先选 1 件你每天都在重复的小事（整理资料、回消息草稿、写日报）\n✅ 找一个别人跑通的案例，原样照抄提示词和步骤\n✅ 连续用 7 天，再改成自己的版本\n✅ 每跑通一件，就记进自己的“案例库”\n\n判断标准很简单：一周能帮你省下 1 小时，就算没白装。\n\n后面我会把自己实测跑通的案例按“场景 + 提示词 + 步骤”整理出来，想先看哪个场景，评论区告诉我👇\n\n#AI智能体 #AI工具 #效率工具 #自动化 #一人公司 #AI副业", "images": ["01_cover.png", "02_card.png", "03_card.png", "04_card.png"], "title_len": 16, "text_len": 394}, BASE="../../";
+const $=id=>document.getElementById(id);
+const toast=(m,ms=3500)=>{const t=$("toast");t.textContent=m;t.style.display="block";clearTimeout(t._h);t._h=setTimeout(()=>t.style.display="none",ms)};
+$("t").textContent=P.title;$("tl").textContent=P.title_len;$("bl").textContent=P.text_len;$("st").textContent=P.status;$("ic").textContent=P.images.length;
+$("b").innerHTML=P.body.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]))+"\n\n<span class=tag>"+P.tags_line+"</span>";
+P.images.forEach(n=>{const i=document.createElement("img");i.src=n;i.alt=n;$("imgs").appendChild(i)});
+function copy(text){ // 同步 execCommand，保证在点击手势内完成（http 下也可用）
+  let ok=false;try{const ta=document.createElement("textarea");ta.value=text;ta.setAttribute("readonly","");ta.style.cssText="position:fixed;top:0;opacity:0";document.body.appendChild(ta);
+  ta.select();ta.setSelectionRange(0,text.length);ok=document.execCommand("copy");ta.remove()}catch(e){}
+  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).catch(()=>{});ok=true}
+  return ok}
+$("cpT").onclick=()=>toast(copy(P.title)?"标题已复制：去标题框粘贴":"复制失败，请长按标题手动复制");
+$("cpB").onclick=()=>toast(copy(P.full_text)?"正文+话题已复制":"复制失败，请手动选中复制");
+const abs=n=>new URL(n,location.href).href;
+async function files(){return Promise.all(P.images.map(async n=>{const b=await (await fetch(n)).blob();return new File([b],P.id+"_"+n,{type:"image/png"})}))}
+let cached=null;files().then(f=>cached=f).catch(()=>{});
+$("saveBtn").onclick=async()=>{
+  const fs=cached||await files();
+  if(navigator.canShare&&navigator.canShare({files:fs})){
+    try{await navigator.share({files:fs});toast("已打开分享面板：选「存储图像」即可存入相册");return}catch(e){if(e.name==="AbortError")return}}
+  P.images.forEach((n,i)=>setTimeout(()=>{const a=document.createElement("a");a.href=n;a.download=P.id+"_"+n;document.body.appendChild(a);a.click();a.remove()},i*400));
+  toast("正在下载图片；若手机没反应，请长按上方每张图片 →「保存图片」",6000)};
+const isMobile=/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+function openXHS(){
+  if(!isMobile){window.open("https://creator.xiaohongshu.com/publish/publish?source=official&target=image","_blank");return}
+  const t0=Date.now();location.href="xhsdiscover://post";
+  setTimeout(()=>{if(!document.hidden&&Date.now()-t0<2600){toast("没有唤起 App？请手动打开小红书 → 底部「+」",6000)}},2000)}
+$("openBtn").onclick=()=>{const ok=copy(P.full_text);toast(ok?"正文+话题已复制，正在打开小红书…":"复制失败，请先点「复制正文」");setTimeout(openXHS,350)};
+// ---- 官方分享 SDK（需 appKey + 服务端签名 + 公网 https 图片；标题/正文官方不再自动填充）----
+fetch(BASE+"config.public.json").then(r=>r.json()).then(cfg=>{
+  const s=cfg.xhs_sdk||{};if(!(s.enabled&&s.app_key&&s.signature_endpoint&&isMobile))return;
+  const sc=document.createElement("script");sc.src="https://fe-static.xhscdn.com/biz-static/goten/xhs-1.0.1.js";document.head.appendChild(sc);
+  $("sdkBtn").style.display="block";
+  $("sdkBtn").onclick=async()=>{copy(P.full_text);
+    try{const v=await (await fetch(s.signature_endpoint)).json();const vc=v.data||v;
+      xhs.share({shareInfo:{type:"normal",title:P.title,content:P.full_text,images:P.images.map(abs)},
+        verifyConfig:{appKey:vc.appKey||s.app_key,nonce:vc.nonce,timestamp:vc.timestamp,signature:vc.signature},
+        fail:e=>toast("SDK 调用失败："+JSON.stringify(e)+"，请用下面两步方式",6000)});
+      toast("正文已复制；图片由官方 SDK 带入发布页",5000)}catch(e){toast("签名服务不可用，请用下面两步方式",6000)}}
+}).catch(()=>{});
+</script></body></html>

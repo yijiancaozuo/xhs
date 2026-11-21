@@ -1,0 +1,3 @@
+装好AI智能体却吃灰？缺的是这个	https://yijiancaozuo.github.io/xhs/posts/01_agent_chihui/
+便宜模型返工更贵？试试分流法	https://yijiancaozuo.github.io/xhs/posts/02_model_fenliu/
+想用AI不会装？远程帮你跑通	https://yijiancaozuo.github.io/xhs/posts/03_yuancheng_bangzhuang/
