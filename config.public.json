@@ -1,0 +1,9 @@
+{
+ "brand": "硅基合伙人",
+ "xhs_sdk": {
+  "enabled": false,
+  "app_key": "",
+  "signature_endpoint": ""
+ },
+ "public_base_url": "https://yijiancaozuo.github.io/xhs/"
+}

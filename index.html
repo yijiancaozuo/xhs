@@ -1,0 +1,23 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>小红书发布工作台 · 硅基合伙人</title>
+<style>
+body{margin:0;background:#0a0e1e;color:#f0f4ff;font-family:-apple-system,"PingFang SC","Noto Sans CJK SC",sans-serif;padding:16px}
+h1{font-size:20px;margin:4px 0}.mu{color:#96a5c8;font-size:13px}
+.item{display:flex;gap:12px;align-items:center;background:#141b36;border-radius:12px;padding:10px;margin:10px 0}
+.item img{width:72px;height:96px;object-fit:cover;border-radius:8px;flex:none}
+.info{flex:1;min-width:0}.info b{display:block;font-size:15px;line-height:1.35}
+.badge{display:inline-block;background:#3a2a00;color:#ffcc4d;font-size:11px;padding:1px 7px;border-radius:99px;margin-top:4px}
+a.go{flex:none;background:#ff2442;color:#fff;text-decoration:none;font-weight:700;padding:12px 14px;border-radius:10px;font-size:15px}
+</style></head><body>
+<h1>小红书发布工作台</h1><div class="mu" id="sum">硅基合伙人 · 读取中…</div>
+<div id="list"></div>
+<div class="mu" style="margin-top:16px">每篇一个按钮。手机上打开对应链接，按页面底部两步操作即可发布。草稿状态需你审核后再发。</div>
+<script>
+fetch("manifest.json").then(r=>r.json()).then(ms=>{
+  document.getElementById("sum").textContent=`硅基合伙人 · 共 ${ms.length} 篇待发布包`;
+  const L=document.getElementById("list");
+  ms.forEach(m=>{const d=document.createElement("div");d.className="item";
+    d.innerHTML=`<img src="posts/${m.id}/${m.images[0]}" alt=""><div class="info"><b></b><span class="mu">${m.images.length} 张图 · 正文 ${m.text_len} 字</span><br><span class="badge"></span></div><a class="go" href="posts/${m.id}/">去发布</a>`;
+    d.querySelector("b").textContent=m.title;d.querySelector(".badge").textContent=m.status;L.appendChild(d)})});
+</script></body></html>
