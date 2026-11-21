@@ -1,37 +1,50 @@
 name: deploy-pages
+# 1) 把 _b64/ 里的图片解码成 PNG 并提交到 main 根目录（支持「Deploy from a branch: main / root」）
+# 2) 用 GitHub Actions 部署 Pages（支持「Source: GitHub Actions」）
 on:
   push:
     branches: [main]
   workflow_dispatch:
-permissions:
-  contents: read
-  pages: write
-  id-token: write
 concurrency:
   group: pages
   cancel-in-progress: true
 jobs:
-  deploy:
+  materialize:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Decode base64 images into repo root
+        run: |
+          find _b64 -name '*.b64' | while read f; do
+            rel="${f#_b64/}"; out="${rel%.b64}"
+            mkdir -p "$(dirname "$out")"; base64 -d "$f" > "$out"
+          done
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add posts
+          git diff --cached --quiet || { git commit -m "Decode images from _b64 [skip ci]"; git push; }
+  deploy:
+    needs: materialize
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-      - name: Build site (decode base64 images)
+        with:
+          ref: main
+      - name: Build site
         run: |
-          mkdir -p ../_site
-          cp -r . ../_site/
-          rm -rf ../_site/.git ../_site/.github ../_site/_b64
-          find _b64 -name '*.b64' | while read f; do
-            rel="${f#_b64/}"; out="../_site/${rel%.b64}"
-            mkdir -p "$(dirname "$out")"; base64 -d "$f" > "$out"
-          done
-          mv ../_site ./_site
+          mkdir -p _site
+          cp -r index.html manifest.json config.public.json links.txt .nojekyll posts _site/
           find _site -type f | sort
       - uses: actions/configure-pages@v5
-        with:
-          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
